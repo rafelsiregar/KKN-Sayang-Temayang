@@ -5,4 +5,4 @@ Untuk mengembangkan web ini, gunakan framework berikut :
 - JQuery
 - Codeigniter
 
-Font dapat dilihat pada .gitignore atau pada style.css
+Font dapat dilihat pada style.css, silahkan didownload fontnya dan disimpan di folder font di dalam #FOLDER YANG SAMA dengan folder web ini.
