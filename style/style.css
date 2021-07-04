@@ -13,6 +13,13 @@
   src: url("../font/Montserrat-Regular.ttf") format("truetype");
 }
 
+.btn-custom-login {
+  background-color: #ffffff;
+  color : rgb(0, 22, 112);
+  margin-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
 
 
 #about, #contact {
@@ -22,7 +29,7 @@
 
 .potensi-desa {
   text-align: center !important;
-  margin-bottom: 10px;
+  
 }
 
 .carousel-item h5, h1, h2 {
@@ -223,6 +230,62 @@ a {
           padding-left: 0; }
     .footer-32892 .site-logo {
       color: #fff;
-      font-size: 20px; }
+      font-size: 20px; 
+    }
+
+    .pop-up-login {
+      font-family: 'Montserrat';
+      height: 70%;
+      width: 25%;
+      padding: 10px 30px;
+      left : 25%;
+      right: 25%;
+      top : 50%;
+      bottom: 50%;
+      position: absolute;
+      background: #050152;
+      border: 1px solid #424242;
+      box-sizing: border-box;
+      border-radius: 10px;
+      margin: auto;
+      color : white;
+    }
+
+    .footer-2 {
+      bottom: 5%;
+      left: 25%;
+      right: 25%;
+      position: absolute;
+    }
+
+  .footer-2 a {
+    font-family: 'Montserrat';
+    color: white !important;
+  }
+
+  .footer-2 a:active {
+    color : rgb(4, 74, 204) !important;
+  }
+
+    .form-login, .form-group, .form-check {
+      margin-top: 10px;
+    }
+
+    body {
+      background-image: url('../img/Contoh 1.jpg') !important; 
+      background-repeat: no-repeat;
+      background-position: left top;
+      background-size: 100% 100%;
+      height: 100vh;
+    }
+
+    .title {
+      text-align: center;
+      font-family: 'Poppins';
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+
 
 
