@@ -43,7 +43,7 @@
                 <a class="nav-link" id="contact_nav" href="#news">Berita Desa</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="project_nav" href="#project"><b>Technopark</b></a>
+                <a class="nav-link" id="project_nav" href="technopark.html"><b>Technopark</b></a>
               </li>
               <li class="nav-item">
                     <button class="btn btn-custom-login" id="login">Login</button>
@@ -58,11 +58,11 @@
 
     <!--Carousel-->
       <section id="home">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div id="carousel-news" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carousel-news" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carousel-news" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carousel-news" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -87,11 +87,11 @@
               </div>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carousel-news" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-target="#carousel-news" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
@@ -106,14 +106,17 @@
           <div class="col-sm-8">
             <h1>Profil Desa</h1>
             <div class="profile-content mt-3">
-              <p >Jono merupakan desa terluas di Kecamatan Temayang yang terletak di perbatasan antara Bojonegoro dan Nganjuk. 
+              <p>Jono merupakan desa terluas di Kecamatan Temayang yang terletak di perbatasan antara Bojonegoro dan Nganjuk. 
                 Di sebelah utara, Jono berbatasan dengan Desa Buntalan. 
                 Sedangkan sebelah selatan berbatasan dengan Desa Bakulan, di barat berbatasan dengan Desa Ngoro Gunung dan sebelah timur dengan Desa Belun. 
                 Desa ini memiliki luas wilayah 1.021.848 Ha yang terbagi menjadi Dusun Krajan, Dusun Ngabar, Dusun Nguncaran dan Dusun Kajangan. 
                 Secara topografi, 80 persen dari wilayah Jono merupakan wilayah dataran dan 20 persen lainnya bergelombang. 
                 Dengan luas wilayahnya, Jono memiliki sumber daya alam yang melimpah seperti lahan tadah hujan seluas 220.770 Ha, lahan tegalan seluas 163.175 Ha, 
-                hutan yang belum terkontaminasi seluas 525.7 Ha, dan tambang Foos Fat seluas 84 Ha.</p>
-                <button type="button" class="btn-custom">Baca Selengkapnya</button>
+                hutan yang belum terkontaminasi seluas 525.7 Ha, dan tambang Foos Fat seluas 84 Ha.
+              </p>
+                <button type="button" class="btn-custom" data-bs-toggle="modal" data-bs-target="#profile-popup">
+                  Baca Selengkapnya
+                </button>
             </div> 
           </div>
           <div class="col-sm-4">
@@ -123,6 +126,58 @@
       </div>
     </section>
     <!--End Profil Desa-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="profile-popup" role="dialog">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header justify-content-center">
+                <h1 style="text-align: center;">Profil Desa</h1>
+              </div>
+              <div class="modal-body">
+                <h2>Sekilas tentang desa Jono</h2>
+                <img src="../img/Gambar Desa.jpg" class="d-block w-100 bigimg" alt="..." data-bs-interval="5000">
+                <p>Jono merupakan desa terluas di Kecamatan Temayang yang terletak di perbatasan antara Bojonegoro dan Nganjuk. 
+                  Di sebelah utara, Jono berbatasan dengan Desa Buntalan. 
+                  Sedangkan sebelah selatan berbatasan dengan Desa Bakulan, di barat berbatasan dengan Desa Ngoro Gunung dan sebelah timur dengan Desa Belun. 
+                  Desa ini memiliki luas wilayah 1.021.848 Ha yang terbagi menjadi Dusun Krajan, Dusun Ngabar, Dusun Nguncaran dan Dusun Kajangan. 
+                  Secara topografi, 80 persen dari wilayah Jono merupakan wilayah dataran dan 20 persen lainnya bergelombang. 
+                  Dengan luas wilayahnya, Jono memiliki sumber daya alam yang melimpah seperti lahan tadah hujan seluas 220.770 Ha, lahan tegalan seluas 163.175 Ha, 
+                  hutan yang belum terkontaminasi seluas 525.7 Ha, dan tambang Foos Fat seluas 84 Ha.
+                  
+                  <br>Di wilayah Jawa Timur, Jono terkenal akan potensi ternaknya. Hal ini dikarenakan adanya banyak kelompok ternak seperti Kedung Gondang, Embong, Purajaya dan Maeso Jenar. 
+                Jumlah seluruh ternak yang ada di desa ini sekitar 273 ekor. Karena potensi ternaknya, desa ini dikenal sebagai desa wisata. 
+                Sebagai desa wisata, Jono tentunya memiliki begitu banyak panorama alam yang dapat dinikmati sebagai lokasi wisata. 
+                Hamparan bukit, hutan dan sumber air memberi corak wisata yang bermacam-macam di setiap wilayahnya.
+                Terdapat dua sendang yang biasa dikunjungi masyarakat sekitar, yaitu Sendang Templek dan Sendang Giling wesi. 
+                Sebagai sendang, Templek dan Giling wesi memiliki air yang jernih sehingga sering digunakan sebagian masyarakat untuk mandi atau sekedar bermain air. 
+                Jono juga memiliki empat gua yang berada di wilayah hutan.
+
+                <br>Selain sendang, desa ini memiliki 3 goa yang dapat dikunjungi, yaitu Goa Dandang, Goa Ubusan, dan Goa Lanang. 
+                Letak ketiganya saling berdekatan dan berada pada satu jalur pendakian sehingga pengunjung dapat mengunjunginya ketiganya dalam satu waktu. 
+                Ketiga goa ini berada di dalam hutan sehingga memberikan pengalaman yang berbeda dan unik ketika berkunjung.
+
+                <br>Desa Jono juga memiliki keanekaragaman seni dan budaya, serta adat dan tradisi. Salah satu kesenian khas Jono adalah Tayub, yaitu tarian tradisional yang biasa dimainkan pada waktu-waktu tertentu. 
+                Desa ini juga memiliki beberapa kelompok karawitan yang mengiringi tarian Tayub. 
+                Selain itu, Desa Jono juga memiliki 4 sanggar batik yang terletak di Dusun Kajangan, Dusun Nguncaran, dan dua kelompok di Dusun Krajan.
+                
+                </p>
+                  <h2>Visi dan Misi Desa Jono</h2>
+                  <h3>Visi Desa Jono</h3>
+                  <p>Visi Desa Jono adalah sebagai berikut : </p>
+                  <h3>Misi Desa Jono</h3>
+                  <p>Misi Desa Jono adalah sebagai berikut : </p>
+              </div>
+                <div class="modal-footer justify-content-center">
+                  <button type="button" class="btn btn-custom-modal" data-bs-dismiss="modal" style="display: inline;">Close</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      <!--End Modal-->
+
+
+
 
     <!--Potensi Desa-->
     <section id="potensi">
@@ -183,17 +238,15 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
     <!--End Proker-->
 
     <!--Footer-->
-    <footer class="footer-32892 pb-0">
+    <footer class="footer-32892 py-5">
       <div class="site-section">
         <div class="container">
-
-          
           <div class="row">
-
             <div class="col-md pr-md-5 mb-4 mb-md-0">
               <h3>Desa Jono</h3>
               <p class="mb-4">Desa Jono RT 07 RW 02 Kec. Temayang Kab. Bojonegoro
@@ -221,7 +274,7 @@
               <ul class="list-unstyled quick-info mb-4">
                 <li class='d-flex flex-icon'>
                   <i class="bi bi-instagram"></i>
-                  <a href="#" class="d-flex align-items-center">@desajono</a>
+                  <a href="#" class="d-flex align-items-center">@jonotemayang</a>
                 </li>
                 <li class="d-flex flex-icon">
                   <i class="bi bi-twitter"></i>
@@ -240,32 +293,20 @@
 
 
             <div class="col-md-3 mb-4 mb-md-0">
-              <h3>Instagram</h3>
-              <div class="row gallery">
-                <div class="col-6">
-                  <a href="#"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
-                  <a href="#"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
-                </div>
-                <div class="col-6">
-                  <a href="#"><img src="images/img_3.jpg" alt="Image" class="img-fluid"></a>
-                  <a href="#"><img src="images/img_4.jpg" alt="Image" class="img-fluid"></a>
-                </div>
+              <h3>Lokasi Desa</h3>
+              <iframe id="google-maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31659.233795830023!2d111.87805533946955!3d-7.308403045237198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e782b7d00adffeb%3A0x943eb7313719dd0a!2sJono%2C%20Temayang%2C%20Kabupaten%20Bojonegoro%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1625501419405!5m2!1sid!2sid" 
+              width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              <div class="row">
+                
               </div>
             </div>
             
             <div class="col-12">
-              <div class="py-5 footer-menu-wrap d-md-flex align-items-center">
-                <ul class="list-unstyled footer-menu mr-auto">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Our works</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Contacts</a></li>
-                </ul>
+              <div class="py-3 footer-menu-wrap d-md-flex align-items-center">
                 <div class="site-logo-wrap ml-auto">
                   <a href="#" class="site-logo">
-                    Colorlib
+                   Copyright 2021. Desa Jono, Temayang, East Java
                   </a>
                 </div>
               </div>
@@ -275,7 +316,15 @@
         </div>
       </div>
     </footer>
+
+    
+
+    
     <!--End Footer-->
+    
+    
     <script src="index.js"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi1yApOeuQiVAeoF1THc8B9wt2heWFJuU&callback=myMap"></script>-->
 
     </body>
+</html>

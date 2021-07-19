@@ -20,6 +20,21 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.modal-header, .modal-footer {
+  background-color: #000b76;
+  color : white;
+}
+
+.btn-custom-modal {
+  color :rgb(0, 22, 112);
+  background-color: white;
+  border-radius: 10px;
+}
+
+.modal {
+  border-radius: 15px  !important;
+}
+
 
 
 #about, #contact {
@@ -32,7 +47,7 @@
   
 }
 
-.carousel-item h5, h1, h2 {
+h4, h5, h1, h2, h3 {
   font-family: "Montserrat Bold", sans-serif;
 }
 
@@ -88,12 +103,18 @@ section {
 }
 
 #news {
-    height: 30%;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 .bigimg {
-    height: 50%;
+    height: auto !important;
 }
+
+#carousel-news, .carousel-inner{
+  top : -1vw !important;
+}
+
 
 .grid_potensi:hover {
     opacity: 30%;
@@ -113,10 +134,10 @@ a {
 .footer-32892 {
     background-color: rgb(3, 2, 75);
     color: white;
-    padding: 7rem 0;
+    padding: 5rem;
     font-size: 16px; 
-    margin-top: 30px;
-    position: relative;
+    position: absolute;
+    width: 100%;
 }
 
 .footer-32892, .footer-32892 h3 {
@@ -272,7 +293,6 @@ a {
     }
 
     body {
-      background-image: url('../img/Contoh 1.jpg') !important; 
       background-repeat: no-repeat;
       background-position: left top;
       background-size: 100% 100%;
