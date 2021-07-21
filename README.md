@@ -3,7 +3,7 @@
 Untuk mengembangkan web ini, gunakan framework berikut : 
 - Bootstrap 5
 - JQuery
-- Codeigniter
+- Codeigniter/Django (cari yang lebih gampang)
 
 Anda dapat menggunakan framework yang lain jika berkenan, khususnya untuk fungsionalitas (Javascript), namun disarankan untuk membuat folder sendiri.
 
