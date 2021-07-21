@@ -122,6 +122,7 @@ section {
 }
 
 
+
 a {
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
@@ -194,7 +195,7 @@ a {
       position: relative; 
 }
       .footer-32892 .subscribe .form-control {
-        background-color: #292b31;
+        background-color: white;
         -webkit-box-shadow: none;
         box-shadow: none;
         border-radius: 30px;
@@ -202,21 +203,26 @@ a {
         padding-left: 30px;
         padding-right: 130px;
         border: none;
-        color: #fff; }
+        color: #000b76; 
+      }
         .footer-32892 .subscribe .form-control::-webkit-input-placeholder {
-          color: #ccc;
-          font-size: 14px; }
+          color: #000b76;
+          font-size: 14px; 
+        }
         .footer-32892 .subscribe .form-control::-moz-placeholder {
-          color: #ccc;
-          font-size: 14px; }
+          color: #000b76;
+          font-size: 14px; 
+        }
         .footer-32892 .subscribe .form-control:-ms-input-placeholder {
-          color: #ccc;
-          font-size: 14px; }
+          color:#000b76 ;
+          font-size: 14px; 
+        }
         .footer-32892 .subscribe .form-control:-moz-placeholder {
           color: #ccc;
-          font-size: 14px; }
+          font-size: 14px; 
+        }
       .footer-32892 .subscribe .btn-submit {
-        background: #f88020;
+        background: rgb(0, 85, 175);
         height: 47px;
         border-radius: 30px;
         padding-left: 30px;
