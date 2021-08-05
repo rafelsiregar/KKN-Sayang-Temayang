@@ -24,7 +24,7 @@
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark shadow fixed-top" style="background-color: #00003a;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html">Desa Jono Temayang</a>
+          <a class="navbar-brand" href="{% url 'index' %}">Desa Jono Temayang</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -46,13 +46,7 @@
         <div id="technopark-carousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="./img/Selamat Datang.png" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="./img/Gambar Desa.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="./img/Contoh 3.jpg" class="d-block w-100" alt="...">
+              <img src="{% static 'desajono/img/Selamat Datang.png' %}" class="d-block w-100" alt="...">
             </div>
           </div>
         </div>
@@ -154,7 +148,7 @@
               <ul class="list-unstyled quick-info mb-4">
                 <li class='d-flex flex-icon'>
                   <i class="bi bi-instagram"></i>
-                  <a href="#" class="d-flex align-items-center">@jonotemayang</a>
+                  <a href="instagram.com/jono_bojonegoro" class="d-flex align-items-center">@jono_bojonegoro</a>
                 </li>
                 <li class="d-flex flex-icon">
                   <i class="bi bi-twitter"></i>

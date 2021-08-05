@@ -28,24 +28,24 @@
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark shadow fixed-top" style="background-color: #00003a;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/desajono">Desa Jono Temayang</a>
+          <a class="navbar-brand" href="{% url 'index' %}">Desa Jono Temayang</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" id="home_nav" aria-current="page" href="/desajono/#home">Beranda</a>
+                <a class="nav-link" id="home_nav" aria-current="page" href="{% url 'index' %}#home">Beranda</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id ="about_nav" href="/desajono/#profil">Profil Desa</a>
+                <a class="nav-link" id ="about_nav" href="{% url 'index' %}#profil">Profil Desa</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="project_nav" href="/desajono/#potensi">Potensi Desa</a>
+                <a class="nav-link" id="project_nav" href="{% url 'index' %}#potensi">Potensi Desa</a>
               </li>
               
               <li class="nav-item">
-                <a class="nav-link" id="contact_nav" href="/desajono/#news">Berita Desa</a>
+                <a class="nav-link" id="contact_nav" href="{% url 'index' %}#news">Berita Desa</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="project_nav" href="{% url 'technopark' %}"><b>Technopark</b></a>
@@ -62,16 +62,20 @@
     <!--End Navbar-->
 
     <!--Profil Desa-->
-    <section id="news">
-      <div class="container mt-3">
+    <section id="news-item">
+      <div class="container mt-3 d-block justify-content-center">
         {% if content %}
         <h1 style="text-align: center; margin: 20px auto;">{{content.title}}</h1>
-        <img src={{content.img.url}} alt="..." style="max-width: 70%;justify-content: center;">
         
-        <p>{{content.full_text}}</p>
-        <p><b>Created by : </b>{{content.author}} at {{content.publication_date}}</p>
-        {%endif%}
       </div>
+      <div class="d-flex justify-content-center">
+        <img src={{content.img.url}} alt="...">
+      </div>
+      <div class="container">
+        <p>{{content.full_text|linebreaks}}</p>
+        <p><b>Created by : </b>{{content.author}} at {{content.publication_date}}</p>
+      </div>
+      {%endif%}
     </section>
     <!--End Profil Desa-->
 
@@ -86,6 +90,8 @@
             <h2 class="text-center mt-2">Berita Lainnya</h2>
             {% elif content.status == 2 %}
             <h2 class="text-center mt-2">Informasi Penting Lainnya</h2>
+            {% elif content.status == 3 %}
+            <h2 class="text-center mt-2">Potensi Lainnya</h2>
             {%endif%}
           </div>
         </div>
@@ -99,7 +105,7 @@
                       <h5 class="card-title">{{c.title}}</h5>
                       <p class="card-text">{{c.full_text}}</p>
                       <!--<p class="card-text"><b>{{c.author}}</b><br> {{c.publication_date}}</p>-->
-                      <button href="#" class="btn-custom">
+                      <button href="#" class="btn-custom read-more">
                           <a href="{% url 'article-detail' year=c.publication_date.year month=c.publication_date.month|stringformat:'02d' slug=c.slug %}">Baca selengkapnya</a>
                     </button>
                     </div>

@@ -6,10 +6,14 @@ from .models import Content
 
 # Create your views here.
 def index(request):
-    content_list = Content.objects.order_by('publication_date')[:5]
+    content_list = Content.objects.order_by('-publication_date')
+    content_in_carousel = content_list[:2]
+    list_potensi = Content.objects.filter(status=3)
     template = loader.get_template('desajono/index.html')
     context = {
         'content_list' : content_list,
+        'content_in_carousel' : content_in_carousel,
+        'potensi' : list_potensi
     }
     return HttpResponse(template.render(context, request))
 

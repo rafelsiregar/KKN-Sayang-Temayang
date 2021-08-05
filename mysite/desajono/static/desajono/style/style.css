@@ -20,6 +20,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+
 .modal-header, .modal-footer {
   background-color: #000b76;
   color : white;
@@ -29,6 +30,14 @@
   color :rgb(0, 22, 112);
   background-color: white;
   border-radius: 10px;
+}
+
+#news-item p {
+  font-family: 'Montserrat';
+  font-size: 16px;
+}
+
+#news-item img {
 }
 
 .modal {
@@ -61,10 +70,18 @@ h4, h5, h1, h2, h3 {
 
 
 .btn-custom {
-    background-color: rgb(0, 22, 112);
+    
     padding : 5pt 8pt;
     border-radius: 10px;
     border : none;
+}
+
+.btn-custom.search {
+  background-color: rgb(133, 0, 0);
+}
+
+.btn-custom.read-more {
+  background-color: rgb(0, 22, 112);
 }
 
 .btn-custom, .btn-custom a {
@@ -82,10 +99,15 @@ h4, h5, h1, h2, h3 {
 .card {
     margin-inline: 6pt;
     width:18rem;
+    cursor: default;
 }
 
-.btn-custom:hover{
+.btn-custom.read-more:hover{
     background-color: rgb(1, 0, 63);
+}
+
+.btn-custom.search:hover{
+  background-color: rgb(204, 0, 0);
 }
 
 #project {
@@ -109,6 +131,7 @@ section {
 
 .bigimg {
     max-height: 500px !important;
+    cursor: pointer;
 }
 
 #carousel-news, .carousel-inner{
@@ -119,6 +142,10 @@ section {
 .grid_potensi:hover {
     opacity: 30%;
     color :rgba(5, 19, 72, 0.8)
+}
+
+.grid_potensi {
+  cursor: pointer;
 }
 
 

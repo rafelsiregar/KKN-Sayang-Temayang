@@ -21,9 +21,11 @@ class Content(models.Model):
     publication_date = models.DateTimeField(default=timezone.now)
     news = 1
     information = 2
+    potensi = 3
     status_choices = (
         (news, 'News'),
         (information, 'Information'),
+        (potensi, 'Potensi')
     )
     status = models.IntegerField(
         choices=status_choices,
