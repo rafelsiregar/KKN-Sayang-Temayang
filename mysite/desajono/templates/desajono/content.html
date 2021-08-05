@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link href="//cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!--Icon Bootstrap-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <!--My Own CSS-->
+    <link rel="stylesheet" href="/static/desajono/style/style.css?{% now "u"="" %}"="">
+    <!--JQuery-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Bootstrap Javascritpt-->
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="//code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <style>
+        #news p {
+            margin-top: 20px;
+        }
+    </style>
+    <title>Desa Jono</title>
+  </head>
+  <body id="main">
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow fixed-top" style="background-color: #00003a;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/desajono">Desa Jono Temayang</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" id="home_nav" aria-current="page" href="/desajono/#home">Beranda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id ="about_nav" href="/desajono/#profil">Profil Desa</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="project_nav" href="/desajono/#potensi">Potensi Desa</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" id="contact_nav" href="/desajono/#news">Berita Desa</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="project_nav" href="{% url 'technopark' %}"><b>Technopark</b></a>
+              </li>
+              <li class="nav-item">
+                    <button class="btn btn-custom-login" id="login">Login</button>
+                </form>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!--End Navbar-->
+
+    <!--Profil Desa-->
+    <section id="news">
+      <div class="container mt-3">
+        {% if content %}
+        <h1 style="text-align: center; margin: 20px auto;">{{content.title}}</h1>
+        <img src={{content.img.url}} alt="..." style="max-width: 70%;justify-content: center;">
+        
+        <p>{{content.full_text}}</p>
+        <p><b>Created by : </b>{{content.author}} at {{content.publication_date}}</p>
+        {%endif%}
+      </div>
+    </section>
+    <!--End Profil Desa-->
+
+
+
+    <!--Berita-->
+    <section id="news">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            {% if content.status == 1 %}
+            <h2 class="text-center mt-2">Berita Lainnya</h2>
+            {% elif content.status == 2 %}
+            <h2 class="text-center mt-2">Informasi Penting Lainnya</h2>
+            {%endif%}
+          </div>
+        </div>
+      <div class="row justify-content-center fs-5 mt-2">
+        {% if another_content %}
+              {% for c in another_content %}
+                {% if c.status == content.status and c.slug != content.slug %}
+                  <div class="card">
+                    <img src="{{c.img.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{c.title}}</h5>
+                      <p class="card-text">{{c.full_text}}</p>
+                      <!--<p class="card-text"><b>{{c.author}}</b><br> {{c.publication_date}}</p>-->
+                      <button href="#" class="btn-custom">
+                          <a href="{% url 'article-detail' year=c.publication_date.year month=c.publication_date.month|stringformat:'02d' slug=c.slug %}">Baca selengkapnya</a>
+                    </button>
+                    </div>
+                  </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+        <div class="text-center mt-5" style="background-color: rgb(126, 1, 1);;padding: 15px 10px;border-radius: 10px;color:white">
+            <h2>Oops</h2>
+            <p>Sepertinya belum ada konten lainnya.</p>
+        </div>
+        {% endif %}
+      </div>
+      </div>
+    </section>
+    <!--End Proker-->
+
+
+    <!--Footer-->
+    <footer class="footer-32892 py-5">
+      <div class="site-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md pr-md-5 mb-4 mb-md-0">
+              <h3>Desa Jono</h3>
+              <p class="mb-4">Desa Jono RT 07 RW 02 Kec. Temayang Kab. Bojonegoro
+                Kecamatan Temayang Kabupaten Bojonegoro Provinsi Jawa Timur Kode Pos 62184</p>
+              <ul class="list-unstyled quick-info mb-4">
+                <li class='d-flex flex-icon'>
+                  <span class="bi bi-telephone"></span>
+                  <a href="#" class="d-flex align-items-center">+62 353 88XXX</a>
+                </li>
+                <li class="d-flex flex-icon">
+                  <span class="bi bi-envelope"></span> 
+                  <a href="#" class="d-flex align-items-center">desajono00@gmail.com</a>
+                </li>
+              </ul>
+
+              <form action="#" class="subscribe">
+                <input type="text" class="form-control" placeholder="Enter your e-mail">
+                <input type="submit" class="btn btn-submit" value="Send">
+              </form>
+            </div>
+
+
+            <div class="col-md mb-4 mb-md-0">
+              <h3 style="margin-left: 10px;">Our Social Media</h3>
+              <ul class="list-unstyled quick-info mb-4">
+                <li class='d-flex flex-icon'>
+                  <i class="bi bi-instagram"></i>
+                  <a href="#" class="d-flex align-items-center">@jono_bojonegoro</a>
+                </li>
+                <li class="d-flex flex-icon">
+                  <i class="bi bi-twitter"></i>
+                  <a href="#" class="d-flex align-items-center">@desajono</a>
+                </li>
+                <li class="d-flex flex-icon">
+                  <span class="iconify" data-icon="fa-facebook-square" data-inline="false"></span>
+                  <a href="#" class="d-flex align-items-center">@desajono</a>
+                </li>
+                <li class="d-flex flex-icon">
+                  <i class="bi bi-twitter"></i>
+                  <a href="#" class="d-flex align-items-center">@desajono</a>
+                </li>
+              </ul>
+            </div>
+
+
+            <div class="col-md-3 mb-4 mb-md-0">
+              <h3>Lokasi Desa</h3>
+              <iframe id="google-maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31659.233795830023!2d111.87805533946955!3d-7.308403045237198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e782b7d00adffeb%3A0x943eb7313719dd0a!2sJono%2C%20Temayang%2C%20Kabupaten%20Bojonegoro%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1625501419405!5m2!1sid!2sid" 
+              width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              <div class="row">
+                
+              </div>
+            </div>
+            
+            <div class="col-12">
+              <div class="py-3 footer-menu-wrap d-md-flex align-items-center">
+                <div class="site-logo-wrap ml-auto">
+                  <a href="#" class="site-logo">
+                   Copyright 2021. Desa Jono, Temayang, East Java
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+
+    
+    <!--End Footer-->
+    
+    
+    <script src="{% static 'desajono/js/index.js' %}"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi1yApOeuQiVAeoF1THc8B9wt2heWFJuU&callback=myMap"></script>-->
+
+    </body>
+</html>
