@@ -20,6 +20,23 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.pagination-navbar {
+  justify-content: center;
+  margin-top: 20px;
+  display: flex;
+  
+}
+
+.pagination-navbar * {
+  font-family: 'Montserrat';
+}
+
+li> .page-item.active {
+background-color: #000b76;
+} 
+
+
+
 
 .modal-header, .modal-footer {
   background-color: #000b76;
@@ -56,8 +73,13 @@
   
 }
 
+p {
+  cursor: default;
+}
+
 h4, h5, h1, h2, h3 {
   font-family: "Montserrat Bold", sans-serif;
+  cursor: default;
 }
 
 .carousel-item p, .profile-content, .nav-link {
@@ -99,7 +121,11 @@ h4, h5, h1, h2, h3 {
 .card {
     margin-inline: 6pt;
     width:18rem;
-    cursor: default;
+    
+}
+
+.card * {
+  cursor: pointer;
 }
 
 .btn-custom.read-more:hover{
@@ -146,6 +172,13 @@ section {
 
 .grid_potensi {
   cursor: pointer;
+  max-width: 300px;
+  height: 200px;
+}
+
+.content-image {
+  max-width: 800px;
+  max-height: 500px;
 }
 
 

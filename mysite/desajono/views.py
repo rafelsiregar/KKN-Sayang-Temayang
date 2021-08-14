@@ -2,24 +2,40 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 from .models import Content
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your views here.
 def index(request):
     content_list = Content.objects.order_by('-publication_date')
     content_in_carousel = content_list[:2]
-    list_potensi = Content.objects.filter(status=3)
+    page = request.GET.get('page', 1)
+    news = content_list.filter(status=1)
+    information = content_list.filter(status=2)
+    list_potensi = content_list.filter(status=3)
+    paginator = [Paginator(news, 3), Paginator(information,3)]
+    try:
+        news_content = paginator[0].page(page)
+        information_content = paginator[1].page(page)
+    except PageNotAnInteger:
+        news_content = paginator[0].page(1)
+        information_content = paginator[1].page(1)
+    except EmptyPage:
+        news_content = paginator[0].page(paginator[0].num_pages)
+        information_content = paginator[1].page(paginator[1].num_pages)
     template = loader.get_template('desajono/index.html')
     context = {
-        'content_list' : content_list,
+        'news_content' : news_content,
+        'information_content' : information_content,
         'content_in_carousel' : content_in_carousel,
         'potensi' : list_potensi
     }
     return HttpResponse(template.render(context, request))
+    #return HttpResponse(news_content)
 
 def see_article(request, slug, year, month):
     content = Content.objects.filter(publication_date__year=year, publication_date__month = month).get(slug=slug)
-    another_content_list = Content.objects.exclude(publication_date__year=year, publication_date__month = month, slug=slug).filter(status=content.status)
+    another_content_list = Content.objects.exclude(publication_date__year=year, publication_date__month = month, slug=slug).filter(status=content.status).order_by('-publication_date')[:3]
     template = loader.get_template('desajono/content.html')
     context = {
         'content' : content,

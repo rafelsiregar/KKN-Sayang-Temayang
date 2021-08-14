@@ -21,6 +21,7 @@
             margin-top: 20px;
         }
     </style>
+    <script src="/static/desajono/js/index.js?{% now "u"="" %}"=""></script>
     <title>Desa Jono</title>
   </head>
   <body id="main">
@@ -69,7 +70,7 @@
         
       </div>
       <div class="d-flex justify-content-center">
-        <img src={{content.img.url}} alt="...">
+        <img class="content-image" src={{content.img.url}} alt="...">
       </div>
       <div class="container">
         <p>{{content.full_text|linebreaks}}</p>
@@ -99,15 +100,12 @@
         {% if another_content %}
               {% for c in another_content %}
                 {% if c.status == content.status and c.slug != content.slug %}
-                  <div class="card">
+                  <div class="card" onclick="redirect(`{{c.publication_date.year}}`, `{{c.publication_date.month|stringformat:'02d'}}`, `{{c.slug}}`)">
                     <img src="{{c.img.url}}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">{{c.title}}</h5>
                       <p class="card-text">{{c.full_text}}</p>
                       <!--<p class="card-text"><b>{{c.author}}</b><br> {{c.publication_date}}</p>-->
-                      <button href="#" class="btn-custom read-more">
-                          <a href="{% url 'article-detail' year=c.publication_date.year month=c.publication_date.month|stringformat:'02d' slug=c.slug %}">Baca selengkapnya</a>
-                    </button>
                     </div>
                   </div>
                 {% endif %}
@@ -156,7 +154,7 @@
               <ul class="list-unstyled quick-info mb-4">
                 <li class='d-flex flex-icon'>
                   <i class="bi bi-instagram"></i>
-                  <a href="#" class="d-flex align-items-center">@jono_bojonegoro</a>
+                  <a href="http://instagram.com/jono_bojonegoro" class="d-flex align-items-center">@jono_bojonegoro</a>
                 </li>
                 <li class="d-flex flex-icon">
                   <i class="bi bi-twitter"></i>
@@ -205,7 +203,7 @@
     <!--End Footer-->
     
     
-    <script src="{% static 'desajono/js/index.js' %}"></script>
+
     <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi1yApOeuQiVAeoF1THc8B9wt2heWFJuU&callback=myMap"></script>-->
 
     </body>

@@ -18,4 +18,9 @@ $(document).ready(function(){
 const truncate = (str, max, suffix) => 
 str.length < max ? str : `${str.substring(0, str.substring(0, max - suffix.length).lastIndexOf(' '))}${suffix}`;
 
+function redirect(year, month, slug){
+    window.location.href = window.location.origin+"/"+year+"/"+month+"/"+slug;
+}
+
+
 

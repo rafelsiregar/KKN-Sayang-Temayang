@@ -38,7 +38,7 @@ class Content(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('article-detail', kwargs={'pk': self.pk, 'slug' : self.slug})
+        return reverse('article-detail', kwargs={'year': self.publication_date.year, 'month' : str(self.publication_date.month).zfill(2), 'slug' : self.slug})
 
     
     
