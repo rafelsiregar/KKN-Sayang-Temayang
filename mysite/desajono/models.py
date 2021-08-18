@@ -8,6 +8,8 @@ from django.dispatch import receiver
 from django.db.models.signals import pre_save
 from mysite.utils import unique_slug_generator
 from django.urls import reverse
+from django import forms
+from django.contrib import admin
 
 
 # Create your models here.
@@ -31,7 +33,7 @@ class Content(models.Model):
         choices=status_choices,
         default=news,
     )
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    author = models.ForeignKey(User, related_name='entries', on_delete=models.CASCADE, default=1)
     slug = models.SlugField(unique=True, default='', editable=False)
     
     def __str__(self):
@@ -39,9 +41,6 @@ class Content(models.Model):
 
     def get_absolute_url(self):
         return reverse('article-detail', kwargs={'year': self.publication_date.year, 'month' : str(self.publication_date.month).zfill(2), 'slug' : self.slug})
-
-    
-    
 
     @property
     def get_year(self):
@@ -57,5 +56,18 @@ def pre_save_receiver(sender, instance, *args, **kwargs):
         instance.slug = unique_slug_generator(instance)
 
 
+class Comment(models.Model):
+    post = models.ForeignKey(Content,on_delete=models.CASCADE,related_name='comments')
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return 'Comment {} by {}'.format(self.body, self.name)
 
 

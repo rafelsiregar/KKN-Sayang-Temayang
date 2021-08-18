@@ -51,7 +51,7 @@
                 <a class="nav-link" id="project_nav" href="{% url 'technopark' %}"><b>Technopark</b></a>
               </li>
               <li class="nav-item">
-                    <button class="btn btn-custom-login" id="login">Login</button>
+                    <button class="btn btn-custom-login" id="login">Admin Site</button>
                 </form>
               </li>
               
@@ -61,11 +61,12 @@
       </nav>
     <!--End Navbar-->
 
-    <!--Profil Desa-->
+    <!--Isi Berita-->
     <section id="news-item">
-      <div class="container mt-3 d-block justify-content-center">
+      <div class="container mt-3 d-block justify-content-center text-center">
         {% if content %}
         <h1 style="text-align: center; margin: 20px auto;">{{content.title}}</h1>
+        <p><b>Created by : </b>{{content.author}} at {{content.publication_date}}</p>
         
       </div>
       <div class="d-flex justify-content-center">
@@ -73,11 +74,80 @@
       </div>
       <div class="container">
         <p>{{content.full_text|linebreaks}}</p>
-        <p><b>Created by : </b>{{content.author}} at {{content.publication_date}}</p>
+        
       </div>
       {%endif%}
     </section>
-    <!--End Profil Desa-->
+    <!--End Isi Berita-->
+
+        <!--Kolom Komentar-->
+        <section id="comment">
+          <div class="container d-block">
+            {% if new_comment %}
+          <div class="alert green">
+            <h1>Terima kasih sudah memberikan berkomentar</h1>
+            <p>Komentar anda akan dimoderasi sebelum ditampilkan ke pembaca.</p>
+          </div>
+          {%else%}
+            <h1 class="mb-4">Tulis Komentar Anda</h1>
+            <form class="justify-content-center" method="POST">
+            {% csrf_token %}
+              <div class="form-group row">
+                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-5">
+                   {{ comment_form.name }}
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-5">
+                  {{ comment_form.email }}
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Your Comment</label>
+                <div class="col-sm-5">
+                  {{comment_form.body}}
+                </div>
+              </div>
+              <div class="d-flex justify-content-center mt-3 col-8">
+                <button type="submit" class="btn-custom submit">Submit</button>
+              </div>
+            </form>
+            {% endif %}
+          </div>
+        </section>
+        <!--End Kolom Komentar-->
+
+
+        <!--Kumpulan Komentar-->
+        <section id="comment-column">
+          <div class="container">
+          <!--Kalau ada yang berkomentar-->
+          {%if comments%}
+          {% for comment in comments %}
+          <div class="comment-box-list">
+            <p>
+              <b>{{ comment.name }}</b>
+              <span>
+                {{ comment.created_on }}
+              </span>
+            </p>
+            {{ comment.body | linebreaks }}
+          </div>
+          {% endfor %}
+          {% else %}
+          <div class="alert blue">
+            <h1>Belum ada yang berkomentar</h1>
+            <p>Jadilah yang pertama memberi komentar</p>
+          </div>
+          {% endif %}
+        </div>
+      </section>
+        
+        <!--End Kumpulan Komentar-->
+
+
 
 
 
@@ -119,6 +189,8 @@
       </div>
     </section>
     <!--End Proker-->
+
+
 
 
     <!--Footer-->

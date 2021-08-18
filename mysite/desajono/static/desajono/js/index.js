@@ -22,6 +22,42 @@ function redirect(year, month, slug){
     window.location.href = window.location.origin+"/"+year+"/"+month+"/"+slug;
 }
 
+function renderMainNavbar(){
+  return `<nav class="navbar navbar-expand-lg navbar-dark shadow fixed-top" style="background-color: #00003a;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'index' %}">Desa Jono Temayang</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" id="home_nav" aria-current="page" href="{% url 'index' %}#home">Beranda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id ="about_nav" href="{% url 'index' %}#profil">Profil Desa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="project_nav" href="{% url 'index' %}#potensi">Potensi Desa</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" id="contact_nav" href="{% url 'index' %}#news">Berita Desa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="project_nav" href="{% url 'technopark' %}"><b>Technopark</b></a>
+        </li>
+        <li class="nav-item">
+              <button class="btn btn-custom-login" id="login">Admin Site</button>
+          </form>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>`
+}
+
 
 
 function renderFooter(){
@@ -102,6 +138,7 @@ function renderFooter(){
   
 }
 
+document.getElementById('main-navbar').innerHTML = renderMainNavbar();
 
 document.getElementById('footer').innerHTML = renderFooter();
 

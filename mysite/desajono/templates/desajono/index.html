@@ -47,7 +47,7 @@
                 <a class="nav-link" id="project_nav" href="{%url 'technopark' %}"><b>Technopark</b></a>
               </li>
               <li class="nav-item">
-                    <button class="btn btn-custom-login" id="login">Login</button>
+                    <button class="btn btn-custom-login" id="login">Admin Site</button>
                 </form>
               </li>
               
@@ -206,8 +206,9 @@
       <div class="container">
         
         <h1 class="potensi-desa">Potensi Desa</h1>
-        <div class="row row-cols-3 mb-2">
+        
         {% if potensi %}
+        <div class="row row-cols-3 mb-2 d-block">
             {% for c in potensi %}
               <div class="col potensi">
                 <img src="{{c.img.url}}" class="grid_potensi img-thumbnail" onclick="redirect('{{c.publication_date.year}}', `{{c.publication_date.month|stringformat:'02d'}}`, '{{c.slug}}')">
@@ -215,7 +216,7 @@
           {% endfor %}
         </div>
         {% else %}
-        <div class="text-center mt-5" style="background-color: rgb(126, 1, 1);;padding: 15px 10px;border-radius: 10px;color:white">
+        <div class="text-center mt-5" style="background-color: rgb(126, 1, 1);;padding: 15px 10px;border-radius: 10px;color:white;display: block;">
             <h2>Oops</h2>
             <p>Sepertinya belum ada potensi desa yang dituliskan. Silahkan menghubungi admin.</p>
         </div>
@@ -290,8 +291,14 @@
               </ul>
               {% endif %}
             </nav>
+            {% else %}
+            <div class="text-center mt-5" style="background-color: rgb(126, 1, 1);;padding: 15px 10px;border-radius: 10px;color:white;display: block;">
+              <h2>Oops</h2>
+              <p>Sepertinya belum ada berita yang dituliskan. Silahkan menghubungi admin.</p>
+            </div>
             {% endif %}
             <!--End Berita Lainnya-->
+            
             
       </div>
       
@@ -364,7 +371,13 @@
                     {% endif %}
                   </ul>
                   {% endif %}
+                  
                 </nav>
+                {% else %}
+                <div class="text-center mt-5" style="background-color: rgb(126, 1, 1);;padding: 15px 10px;border-radius: 10px;color:white;display: block;">
+                  <h2>Oops</h2>
+                  <p>Sepertinya belum ada berita yang dituliskan. Silahkan menghubungi admin.</p>
+                </div>
                 {% endif %}
           </div>
           </div>

@@ -49,12 +49,40 @@ background-color: #000b76;
   border-radius: 10px;
 }
 
-#news-item p {
+#news-item p, label, section p {
   font-family: 'Montserrat';
   font-size: 16px;
+  
+}
+
+.comment-box-list {
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px rgba(0, 22, 112, 0.5);
+  margin-bottom: 30px;
+  padding: 20px;
 }
 
 #news-item img {
+
+}
+
+.alert {
+  border-radius: 10px;
+  color: white;
+  font-family: 'Montserrat';
+  text-align: center;
+}
+
+.alert.green {
+  background-color: #043c01;
+}
+
+.alert h1 {
+  font-weight: 200px;
+}
+
+.alert.blue {
+  background-color :rgb(0, 22, 112);
 }
 
 .modal {
@@ -92,10 +120,14 @@ h4, h5, h1, h2, h3 {
 
 
 .btn-custom {
-    
     padding : 5pt 8pt;
     border-radius: 10px;
     border : none;
+}
+
+.btn-custom.submit {
+  padding: 5pt 20pt !important;
+  background-color: rgb(0, 22, 112);
 }
 
 .btn-custom.search {
