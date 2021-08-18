@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#_rc%!=@vb617!oqa*jj_r-g)#j*=7yu13@bgg5v(&c0#3zkdc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '*.heroku.com', '.localhost']
 
 
 # Application definition
@@ -75,11 +75,16 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+#os.path.join(BASE_DIR, 'db.sqlite3')
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'CONN_MAX_AGE': 500
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd1eblf0v9i6lmv',
+        'USER': 'jckcyhiwzgppbo',
+        'PASSWORD': '5ac89e7550fa7319d9fe5a4438454e9ca814d846c511786414d71748faf6f3be',
+        'HOST': 'ec2-18-235-4-83.compute-1.amazonaws.com',
+        'PORT':  '5432'
     }
 }
 
