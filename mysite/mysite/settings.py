@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
-#import dj_database_url
-
+'''import django_heroku
+import dj_database_url
+'''
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +28,7 @@ SECRET_KEY = '#_rc%!=@vb617!oqa*jj_r-g)#j*=7yu13@bgg5v(&c0#3zkdc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'desajono.com', 'www.desajono.com']
 
 
 # Application definition
@@ -81,13 +81,44 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     }
 }
+
+
+
+'''
+DATABASES = {
+    'default' : {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd1eblf0v9i6lmv',
+        'USER': 'jckcyhiwzgppbo',
+        'PASSWORD' : '5ac89e7550fa7319d9fe5a4438454e9ca814d846c511786414d71748faf6f3be',
+        'HOST' : 'ec2-18-235-4-83.compute-1.amazonaws.com',
+        'PORT' : '5432'
+    }
+}
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+DATABASES = {
+    'default' : {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'desajono',
+        'USER': 'root',
+        'PASSWORD' : '',
+        'HOST' : 'localhost',
+        'PORT' : '3306'
+    }
+}
+
+'''
+
+
 
 
 # Password validation
@@ -131,12 +162,13 @@ STATIC_URL = '/static/'
 
 # Add these new lines
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'assets'),
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+print(STATIC_ROOT)
 # Media files, uploaded by user
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())

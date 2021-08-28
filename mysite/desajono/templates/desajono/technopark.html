@@ -10,7 +10,7 @@
     <!--Icon Bootstrap-->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <!--My Own CSS-->
-    <link rel="stylesheet" href="/static/desajono/style/style.css?{% now "u"="" %}"="" >
+    <link rel="stylesheet" href="{% static 'style/style.css' %}?{% now "u"="" %}"="" >
     <!--JQuery-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--Bootstrap Javascritpt-->
@@ -45,7 +45,7 @@
         <div id="technopark-carousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="{% static 'desajono/img/Selamat Datang.png' %}" class="d-block w-100" alt="...">
+              <img src="{% static 'img/Selamat Datang.png' %}" class="d-block w-100" alt="...">
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@
     <!--End Footer-->
     
     
-    <script src="/static/desajono/js/index.js?{% now "u"="" %}"=""></script>
+    <script src="{% static 'js/index.js' %}?{% now "u"="" %}"=""></script>
     <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi1yApOeuQiVAeoF1THc8B9wt2heWFJuU&callback=myMap"></script>-->
 
     </body>

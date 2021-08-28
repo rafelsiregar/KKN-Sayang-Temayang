@@ -10,7 +10,7 @@ from mysite.utils import unique_slug_generator
 from django.urls import reverse
 from django import forms
 from django.contrib import admin
-
+from datetime import datetime
 
 # Create your models here.
 
@@ -49,6 +49,10 @@ class Content(models.Model):
     @property
     def get_month(self):
         return self.publication_date.month
+
+    @property
+    def get_publication_date(self):
+        return self.publication_date.strftime("%B %d, %Y %H:%M:%S")
 
 @receiver(pre_save, sender=Content)
 def pre_save_receiver(sender, instance, *args, **kwargs):

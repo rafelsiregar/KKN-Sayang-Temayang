@@ -33,7 +33,7 @@ def index(request):
         'potensi' : list_potensi
     }
     return HttpResponse(template.render(context, request))
-    #return HttpResponse(news_content)
+    #return HttpResponse(news_content[0].publication_date)
 
 def see_article(request, slug, year, month):
     content = Content.objects.filter(publication_date__year=year, publication_date__month = month).get(slug=slug)

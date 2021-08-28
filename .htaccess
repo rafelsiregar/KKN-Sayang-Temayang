@@ -1,0 +1,5 @@
+AddHandler fcgid-script .fcgi
+RewriteEngine On
+RewriteRule /static/ /home2/usr/public_html/mydjangoproject/static
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ mysite.fcgi/$1 [QSA,L]
